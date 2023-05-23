@@ -15,9 +15,18 @@ textarea.addEventListener("keyup", (e) => {
             e.target.value = "" // Clear the textarea after pressing Enter
         }, 10)
 
-        randomSelect() // Call randomSelect function to start random selection
+        const numberOfChoices = getNumberOfChoices() // Get the number of choices entered
+        const times = numberOfChoices * 5 // Calculate the new value for 'times'
+
+        randomSelect(times) // Call randomSelect function with the new 'times' value
     }
 })
+
+// Function to get the number of choices entered
+function getNumberOfChoices() {
+    const tags = document.querySelectorAll(".tag") // Get all tag elements
+    return tags.length // Return the number of tags
+}
 
 // Function to create tags from the input text
 function createTags(input) {
@@ -39,9 +48,7 @@ function createTags(input) {
 }
 
 // Function to perform random selection of tags
-function randomSelect() {
-    const times = 30 // Number of times to highlight and unhighlight tags
-
+function randomSelect(times) {
     const interval = setInterval(() => {
         const randomTag = pickRandomTag() // Get a random tag element
 
