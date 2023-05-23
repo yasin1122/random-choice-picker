@@ -21,9 +21,9 @@ textarea.addEventListener("keyup", (e) => {
 
 // Function to create tags from the input text
 function createTags(input) {
-    // Split the input text by comma, remove whitespace, and create an array of tags
+    // Split the input text by space, remove whitespace, and create an array of tags
     const tags = input
-        .split(",")
+        .split(" ")
         .filter((tag) => tag.trim() !== "")
         .map((tag) => tag.trim())
 
